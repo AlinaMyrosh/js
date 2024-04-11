@@ -1,9 +1,105 @@
-function foo() {
-  const args = Array.from(arguments);
-  return args.join("-");
-}
+const temps = [14, -4, 25, 8, 11];
 
-console.log(foo(1, 2, 3));
+console.log([...temps]);
+
+// function add(...args) {
+//   let total = 0;
+//   for (let arg of args) {
+//     total += arg;
+//   }
+//   return total;
+// }
+
+// console.log(add(15, 27));
+
+// const atTheOldToad = {
+//   potions: [
+//     { name: "Speed potion", price: 460 },
+//     { name: "Stone skin", price: 520 },
+//   ],
+//   getPotions() {
+//     return this.potions;
+//   },
+//   addPotion(newPotion) {
+//     this.potions.push(newPotion);
+//   },
+//   getTotalPrice() {
+//     let totalPrice = 0;
+//     for (let potion of this.potions) {
+//       totalPrice += potion.price;
+//     }
+//     return totalPrice;
+//   },
+// };
+
+// function getAllPropValues(propName) {
+//   const products = [
+//     { name: "Radar", price: 1300, quantity: 4 },
+//     { name: "Scanner", price: 2700, quantity: 3 },
+//     { name: "Droid", price: 400, quantity: 7 },
+//     { name: "Grip", price: 1200, quantity: 9 },
+//   ];
+
+//   const allPropValues = [];
+
+//   for (let product of products) {
+//     if (Object.keys(product).includes(propName)) {
+//       allPropValues.push(product[propName]);
+//     }
+//   }
+
+//   return allPropValues;
+// }
+
+// console.log(getAllPropValues("price"));
+// console.log(getAllPropValues("category"));
+
+// function getAllPropValues(propName) {
+//   const products = [
+//     { name: "Radar", price: 1300, quantity: 4 },
+//     { name: "Scanner", price: 2700, quantity: 3 },
+//     { name: "Droid", price: 400, quantity: 7 },
+//     { name: "Grip", price: 1200, quantity: 9 },
+//   ];
+
+//   const allPropValues = [];
+
+//   for (let product of products) {
+//     allPropValues.push(product[propName]);
+//   }
+
+//   return allPropValues;
+// }
+
+// console.log(getAllPropValues("quantity"));
+// console.log(getAllPropValues("category"));
+
+// function getProductPrice(productName) {
+//   const products = [
+//     { name: "Radar", price: 1300, quantity: 4 },
+//     { name: "Scanner", price: 2700, quantity: 3 },
+//     { name: "Droid", price: 400, quantity: 7 },
+//     { name: "Grip", price: 1200, quantity: 9 },
+//   ];
+//   let productPrice;
+//   for (const product of products) {
+//     if (product.name === productName) {
+//       return product.price;
+//     } else {
+//       productPrice = null;
+//     }
+//   }
+//   return productPrice;
+// }
+
+// console.log(getProductPrice("Radar"));
+
+// function foo() {
+//   const args = Array.from(arguments);
+//   return args.join("-");
+// }
+
+// console.log(foo(1, 2, 3));
 
 // function getCommonElements(array1, array2) {
 //   let commonElement = [];
