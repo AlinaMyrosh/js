@@ -1,6 +1,33 @@
-const temps = [14, -4, 25, 8, 11];
+function changeEven(numbers, value) {
+  let newArray = [];
 
-console.log([...temps]);
+  numbers.forEach((number) => {
+    if (number % 2 === 0) {
+      newArray.push(number + value);
+    }
+  });
+
+  return newArray;
+}
+
+console.log(changeEven([2, 8, 3, 7, 4, 6], 10));
+
+// const numbers = [5, 10, 15, 20, 25];
+
+// // Класичний for
+// // for (let i = 0; i < numbers.length; i += 1) {
+// //   console.log(`Index ${i}, value ${numbers[i]}`);
+// // }
+
+// // Перебираючий метод forEach
+// numbers.forEach(function (number, index) {
+//   console.log(`Index ${index}, value ${number}`);
+//   return;
+// });
+
+// const temps = [14, -4, 25, 8, 11];
+
+// console.log([...temps]);
 
 // function add(...args) {
 //   let total = 0;
