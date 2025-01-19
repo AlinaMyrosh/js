@@ -1,16 +1,16 @@
-function changeEven(numbers, value) {
-  let newArray = [];
+// function changeEven(numbers, value) {
+//   let newArray = [];
 
-  numbers.forEach((number) => {
-    if (number % 2 === 0) {
-      newArray.push(number + value);
-    }
-  });
+//   numbers.forEach((number) => {
+//     if (number % 2 === 0) {
+//       newArray.push(number + value);
+//     }
+//   });
 
-  return newArray;
-}
+//   return newArray;
+// }
 
-console.log(changeEven([2, 8, 3, 7, 4, 6], 10));
+// console.log(changeEven([2, 8, 3, 7, 4, 6], 10));
 
 // const numbers = [5, 10, 15, 20, 25];
 
