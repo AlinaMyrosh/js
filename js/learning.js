@@ -1,14 +1,3 @@
-// function calcAverage() {
-//   const args = Array.from(arguments);
-//   let total = 0;
-//   for (const arg of args) {
-//     total += arg;
-//   }
-//   return Math.round(total / args.length);
-// }
-
-// console.log(calcAverage(14, -4, 25, 8, 11));
-
 // const values = "8 11";
 // const sqare = Number(values.split(" ")[0]) * Number(values.split(" ")[1]);
 // console.log(sqare);
