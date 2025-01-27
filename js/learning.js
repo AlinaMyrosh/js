@@ -1,3 +1,79 @@
+// -------------------------------------------------
+// const players = {
+//   mango: 1270,
+//   poly: 468,
+//   ajax: 710,
+//   kiwi: 244,
+// };
+// const playtimes = Object.values(players); // [1270, 468, 710, 244]
+
+// const totalPlayTime = playtimes.reduce(
+//   (previousValue, playtime) => previousValue + playtime,
+//   0
+// );
+
+// const averagePlayTime = totalPlayTime / playtimes.length;
+
+// console.log(totalPlayTime);
+
+// -------------------------------------------
+// const numbers = [17, 24, 82, 61, 36, 18, 47, 52, 73];
+
+// const evenNumbers = numbers.filter((number) => !(number % 2));
+// const oddNumbers = numbers.filter((number) => number % 2);
+// console.log(evenNumbers);
+// console.log(oddNumbers);
+
+// ----------------------------------------
+// const users = [
+//   {
+//     name: "Moore Hensley",
+//     email: "moorehensley@indexia.com",
+//     eyeColor: "blue",
+//     friends: ["Sharron Pace"],
+//     isActive: false,
+//     balance: 2811,
+//     skills: ["ipsum", "lorem"],
+//     gender: "male",
+//     age: 37,
+//   },
+//   {
+//     name: "Sharlene Bush",
+//     email: "sharlenebush@tubesys.com",
+//     eyeColor: "blue",
+//     friends: ["Briana Decker", "Sharron Pace"],
+//     isActive: true,
+//     balance: 3821,
+//     skills: ["tempor", "mollit", "commodo", "veniam", "laborum"],
+//     gender: "female",
+//     age: 34,
+//   },
+//   {
+//     name: "Elma Head",
+//     email: "elmahead@omatom.com",
+//     eyeColor: "green",
+//     friends: ["Goldie Gentry", "Aisha Tran"],
+//     isActive: true,
+//     balance: 2278,
+//     skills: ["adipisicing", "irure", "velit"],
+//     gender: "female",
+//     age: 21,
+//   },
+// ];
+
+// const getUserEmails = (array) => users.map((user) => user.email);
+// console.log(getUserEmails(users));
+
+// ----------------------------------
+// function calc(a, b, callback) {
+//   const res = callback(a, b);
+//   console.log(res);
+// }
+
+// calc(2, 5, function (x, y) {
+//   return x + y;
+// });
+
 // const values = "8 11";
 // const sqare = Number(values.split(" ")[0]) * Number(values.split(" ")[1]);
 // console.log(sqare);
