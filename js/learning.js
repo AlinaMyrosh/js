@@ -1,243 +1,132 @@
-// -------------task-4-----------------------
+class User {
+  email;
 
-const getTotalBalanceByGender = (users, gender) => {
-  return users
-    .filter((user) => user.gender === gender)
-    .reduce((totalBalance, user) => totalBalance + user.balance, 0);
-};
+  constructor(email) {
+    this.email = email;
+  }
 
-const clients = [
-  {
-    name: "Moore Hensley",
-    gender: "male",
-    balance: 2811,
-  },
-  {
-    name: "Sharlene Bush",
-    gender: "female",
-    balance: 3821,
-  },
-  {
-    name: "Ross Vazquez",
-    gender: "male",
-    balance: 3793,
-  },
-  {
-    name: "Elma Head",
-    gender: "female",
-    balance: 2278,
-  },
-  {
-    name: "Carey Barr",
-    gender: "male",
-    balance: 3951,
-  },
-  {
-    name: "Blackburn Dotson",
-    gender: "male",
-    balance: 1498,
-  },
-  {
-    name: "Sheree Anthony",
-    gender: "female",
-    balance: 2764,
-  },
-];
+  get email() {
+    return this.email;
+  }
 
-console.log(getTotalBalanceByGender(clients, "male")); // 12053
+  set email(newEmail) {
+    this.email = newEmail;
+  }
+}
+class Admin extends User {
+  static role = {
+    BASIC: "basic",
+    SUPERUSER: "superuser",
+  };
 
-console.log(getTotalBalanceByGender(clients, "female")); // 8863
+  blacklistedEmails = [];
 
-// --------------task-3---------------------
-// const sortByDescendingFriendCount = (users) =>
-//   users.toSorted(
-//     (firstUser, secondUser) =>
-//       secondUser.friends.length - firstUser.friends.length
-//   );
+  constructor(params) {
+    super(params.email);
+    this.access = params.access;
+  }
 
-// console.log(
-//   sortByDescendingFriendCount([
-//     {
-//       name: "Moore Hensley",
-//       friends: ["Sharron Pace"],
-//       gender: "male",
-//     },
-//     {
-//       name: "Sharlene Bush",
-//       friends: ["Briana Decker", "Sharron Pace"],
-//       gender: "female",
-//     },
-//     {
-//       name: "Ross Vazquez",
-//       friends: ["Marilyn Mcintosh", "Padilla Garrison", "Naomi Buckner"],
-//       gender: "male",
-//     },
-//     {
-//       name: "Elma Head",
-//       friends: ["Goldie Gentry", "Aisha Tran"],
-//       gender: "female",
-//     },
-//     {
-//       name: "Carey Barr",
-//       friends: ["Jordan Sampson", "Eddie Strong"],
-//       gender: "male",
-//     },
-//     {
-//       name: "Blackburn Dotson",
-//       friends: ["Jacklyn Lucas", "Linda Chapman"],
-//       gender: "male",
-//     },
-//     {
-//       name: "Sheree Anthony",
-//       friends: ["Goldie Gentry", "Briana Decker"],
-//       gender: "female",
-//     },
-//   ])
-// );
+  blacklist(email) {
+    this.blacklistedEmails.push(email);
+  }
 
-// [
-//   {
-//     name: "Ross Vazquez",
-//     friends: ["Marilyn Mcintosh", "Padilla Garrison", "Naomi Buckner"],
-//     gender: "male"
-//   },
-//   {
-//     name: "Sharlene Bush",
-//     friends: ["Briana Decker", "Sharron Pace"],
-//     gender: "female"
-//   },
-//   {
-//     name: "Elma Head",
-//     friends: ["Goldie Gentry", "Aisha Tran"],
-//     gender: "female"
-//   },
-//   {
-//     name: "Carey Barr",
-//     friends: ["Jordan Sampson", "Eddie Strong"],
-//     gender: "male"
-//   },
-//   {
-//     name: "Blackburn Dotson",
-//     friends: ["Jacklyn Lucas", "Linda Chapman"],
-//     gender: "male"
-//   },
-//   {
-//     name: "Sheree Anthony",
-//     friends: ["Goldie Gentry", "Briana Decker"],
-//     gender: "female"
-//   },
-//   {
-//     name: "Moore Hensley",
-//     friends: ["Sharron Pace"],
-//     gender: "male"
+  isBlacklisted(email) {
+    return this.blacklistedEmails.includes(email);
+  }
+}
+
+const mango = new Admin({
+  email: "mango@mail.com",
+  access: Admin.role.SUPERUSER,
+});
+
+console.log(mango.email); // "mango@mail.com"
+console.log(mango.access); // "superuser"
+
+mango.blacklist("poly@mail.com");
+console.log(mango.blacklistedEmails); // ["poly@mail.com"]
+console.log(mango.isBlacklisted("mango@mail.com")); // false
+console.log(mango.isBlacklisted("poly@mail.com")); // true
+//
+//
+// class User {
+//   #email;
+
+//   constructor(email) {
+//     this.#email = email;
 //   }
-// ]
 
-// ---------------task-2--------------------
+//   get email() {
+//     return this.#email;
+//   }
 
-// const getUsersWithFriend = (users, friendName) =>
-//   users.filter((user) => user.friends.includes(friendName));
+//   set email(newEmail) {
+//     this.#email = newEmail;
+//   }
+// }
 
-// const allUsers = [
-//   {
-//     name: "Moore Hensley",
-//     friends: ["Sharron Pace"],
-//   },
-//   {
-//     name: "Sharlene Bush",
-//     friends: ["Briana Decker", "Sharron Pace"],
-//   },
-//   {
-//     name: "Ross Vazquez",
-//     friends: ["Marilyn Mcintosh", "Padilla Garrison", "Naomi Buckner"],
-//   },
-//   {
-//     name: "Elma Head",
-//     friends: ["Goldie Gentry", "Aisha Tran"],
-//   },
-//   {
-//     name: "Carey Barr",
-//     friends: ["Jordan Sampson", "Eddie Strong"],
-//   },
-//   {
-//     name: "Blackburn Dotson",
-//     friends: ["Jacklyn Lucas", "Linda Chapman"],
-//   },
-//   {
-//     name: "Sheree Anthony",
-//     friends: ["Goldie Gentry", "Briana Decker"],
-//   },
-// ];
+// class ContentEditor extends User {
+//   constructor(params) {
+//     // Виклик конструктора батьківського класу User
+//     super(params.email);
 
-// console.log(getUsersWithFriend(allUsers, "Briana Decker"));
-// // [
-// //   {
-// //     name: "Sharlene Bush",
-// //     friends: ["Briana Decker", "Sharron Pace"]
-// //   },
-// //   {
-// //     name: "Sheree Anthony",
-// //     friends: ["Goldie Gentry", "Briana Decker"]
-// //   }
-// // ]
+//     this.posts = params.posts;
+//   }
+// }
 
-// console.log(getUsersWithFriend(allUsers, "Goldie Gentry"));
-// // [
-// //   {
-// //     name: "Elma Head",
-// //     friends: ["Goldie Gentry", "Aisha Tran"]
-// //   },
-// //   {
-// //     name: "Sheree Anthony",
-// //     friends: ["Goldie Gentry", "Briana Decker"]
-// //   }
-// // ]
+// const editor = new ContentEditor({
+//   email: "mango@mail.com",
+//   posts: [],
+// });
+// console.log(editor); // { #email: "mango@mail.com", posts: [] }
+// console.log(editor.email); // "mango@mail.com"
+// //
+// //
+// //
+// // Уявімо, що вище є оголошення класу User
 
-// console.log(getUsersWithFriend(allUsers, "Adrian Cross")); // []
+// class ContentEditor extends User {
+//   constructor(params) {
+//     super(params.email);
+//     this.posts = params.posts;
+//   }
 
-// ------------------task-1---------------------------
-// const getUserNames = (users) => users.map((user) => user.name);
+//   addPost(post) {
+//     this.posts.push(post);
+//   }
+// }
 
-// console.log(
-//   getUserNames([
-//     {
-//       name: "Moore Hensley",
-//       email: "moorehensley@indexia.com",
-//       balance: 2811,
-//     },
-//     {
-//       name: "Sharlene Bush",
-//       email: "sharlenebush@tubesys.com",
-//       balance: 3821,
-//     },
-//     {
-//       name: "Ross Vazquez",
-//       email: "rossvazquez@xinware.com",
-//       balance: 3793,
-//     },
-//     {
-//       name: "Elma Head",
-//       email: "elmahead@omatom.com",
-//       balance: 2278,
-//     },
-//     {
-//       name: "Carey Barr",
-//       email: "careybarr@nurali.com",
-//       balance: 3951,
-//     },
-//     {
-//       name: "Blackburn Dotson",
-//       email: "blackburndotson@furnigeer.com",
-//       balance: 1498,
-//     },
-//     {
-//       name: "Sheree Anthony",
-//       email: "shereeanthony@kog.com",
-//       balance: 2764,
-//     },
-//   ])
-// ); // ["Moore Hensley", "Sharlene Bush", "Ross Vazquez", "Elma Head", "Carey Barr", "Blackburn Dotson", "Sheree Anthony"]
+// const editor = new ContentEditor({
+//   email: "mango@mail.com",
+//   posts: [],
+// });
 
+// console.log(editor); // { #email: "mango@mail.com", posts: [], addPost: f }
+
+// editor.addPost("post-1");
+// editor.addPost("post-2");
+// console.log(editor.posts); // ['post-1', 'post-2']
+
+//
+//
+//
+//
+// const animal = {
+//   legs: 4,
+// };
+
+// const dog = Object.create(animal);
+// dog.name = "Mango";
+
+// console.log(dog); // { name: "Mango", [[Prototype]]: animal }
+//
+//
+//
+//
+//
+//
+//
+//
 // ----------------------------------------
 // const books = [
 //   {
