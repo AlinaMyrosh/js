@@ -1,53 +1,157 @@
-class User {
-  email;
+// ------------------------------------------------
+// const box = document.querySelector(".js-box");
 
-  constructor(email) {
-    this.email = email;
-  }
+// console.log(box);
 
-  get email() {
-    return this.email;
-  }
+// box.addEventListener("mouseenter", onMouseEnter);
+// box.addEventListener("mouseleave", onMouseLeave);
+// box.addEventListener("mousemove", onMouseMove);
 
-  set email(newEmail) {
-    this.email = newEmail;
-  }
-}
-class Admin extends User {
-  static role = {
-    BASIC: "basic",
-    SUPERUSER: "superuser",
-  };
+// function onMouseEnter(event) {
+//   // box.classList.add("box--active");
+//   event.currentTarget.classList.add("box--active");
+// }
 
-  blacklistedEmails = [];
+// function onMouseLeave(event) {
+//   // box.classList.remove("box--active");
+//   event.currentTarget.classList.remove("box--active");
+// }
 
-  constructor(params) {
-    super(params.email);
-    this.access = params.access;
-  }
+// function onMouseMove(event) {
+//   console.log("ClientX: ", event.clientX);
+//   console.log("ClientY: ", event.clientY);
+// }
 
-  blacklist(email) {
-    this.blacklistedEmails.push(email);
-  }
+// --------------------------------------------------
+// document.addEventListener("keydown", handleCopy);
 
-  isBlacklisted(email) {
-    return this.blacklistedEmails.includes(email);
-  }
-}
-
-const mango = new Admin({
-  email: "mango@mail.com",
-  access: Admin.role.SUPERUSER,
-});
-
-console.log(mango.email); // "mango@mail.com"
-console.log(mango.access); // "superuser"
-
-mango.blacklist("poly@mail.com");
-console.log(mango.blacklistedEmails); // ["poly@mail.com"]
-console.log(mango.isBlacklisted("mango@mail.com")); // false
-console.log(mango.isBlacklisted("poly@mail.com")); // true
+// function handleCopy(event) {
+//   if (event.ctrlKey && event.code === "KeyC") {
+//     event.preventDefault();
+//   }
+// }
 //
+// function handleKey(event) {
+//   console.log(event.ctrlKey);
+// }
+
+// function handleEscape(event) {
+//   if (event.code === "Escape") {
+//     console.log("Escape");
+//   } else {
+//     console.log("Oops!");
+//   }
+// }
+
+// function handleKeyPress(event) {
+//   console.log("key: ", event.key);
+//   console.log("code: ", event.code);
+// }
+
+//
+// -----------------------------------------------------
+// const form = document.querySelector(".js-form");
+
+// form.addEventListener("submit", handleSubmit);
+
+// function handleSubmit(event) {
+//   event.preventDefault();
+//   const elements = event.currentTarget.elements;
+//   console.log(elements.email.value);
+
+//   const info = {
+//     email: elements.email.value,
+//     password: elements.password.value,
+//     comment: elements.comment.value,
+//   };
+
+//   console.log(info);
+
+//   form.reset();
+// }
+
+// ------------------------------------------------------
+// const checkbox = document.querySelector(".js-checkbox");
+
+// checkbox.addEventListener("change", () => {
+//   console.log("ok");
+// });
+
+// const userName = document.querySelector(".js-user-name");
+// userName.addEventListener("blur", handleInput);
+
+// function handleInput(event) {
+//   const name = event.target.value;
+//   alert(`Hello, ${name}!`);
+// }
+// -----------------------------------------------
+// const btn = document.querySelector(".js-click");
+// const box = document.querySelector(".js-box");
+
+// btn.addEventListener("click", handleClick);
+// box.addEventListener("click", handleClick);
+
+// let step = 0;
+
+// function handleClick() {
+//   step += 50;
+//   box.style.marginTop = `${step}px`;
+//   box.style.marginLeft = `${step}px`;
+// }
+//
+//
+// --------------------------------------------------------
+// class User {
+//   email;
+
+//   constructor(email) {
+//     this.email = email;
+//   }
+
+//   get email() {
+//     return this.email;
+//   }
+
+//   set email(newEmail) {
+//     this.email = newEmail;
+//   }
+// }
+// class Admin extends User {
+//   static role = {
+//     BASIC: "basic",
+//     SUPERUSER: "superuser",
+//   };
+
+//   blacklistedEmails = [];
+
+//   constructor(params) {
+//     super(params.email);
+//     this.access = params.access;
+//   }
+
+//   blacklist(email) {
+//     this.blacklistedEmails.push(email);
+//   }
+
+//   isBlacklisted(email) {
+//     return this.blacklistedEmails.includes(email);
+//   }
+// }
+
+// const mango = new Admin({
+//   email: "mango@mail.com",
+//   access: Admin.role.SUPERUSER,
+// });
+
+// console.log(mango.email); // "mango@mail.com"
+// console.log(mango.access); // "superuser"
+
+// mango.blacklist("poly@mail.com");
+// console.log(mango.blacklistedEmails); // ["poly@mail.com"]
+// console.log(mango.isBlacklisted("mango@mail.com")); // false
+// console.log(mango.isBlacklisted("poly@mail.com")); // true
+//
+// ------------------------------------------------
 //
 // class User {
 //   #email;

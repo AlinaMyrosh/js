@@ -1,0 +1,50 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 200px;
+}
+
+/* --------------------------- */
+/* .box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 300px;
+  background-color: #3f51b5;
+  transition: background-color 200ms ease-in;
+}
+
+.box--active {
+  background-color: #009688;
+}
+
+.inner-box {
+  width: 100px;
+  height: 100px;
+  background-color: #ffc107;
+} */
+
+/* ---------------------------- */
+/* .js-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+} */
+
+/* --------------------------- */
+/* .js-click {
+}
+
+.js-box {
+}
+
+.box {
+  background-color: cadetblue;
+  width: 100px;
+  height: 100px;
+} */
