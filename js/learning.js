@@ -1,3 +1,59 @@
+const fetchUsersBtn = document.querySelector(".btn");
+
+fetchUsersBtn.addEventListener("click", () => {
+  fetch("https://jsonplaceholder.typicode.com/users")
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(response.status);
+      }
+      return response.json();
+    })
+    .then((users) => {
+      // Дані від бекенда
+      console.log(users);
+    })
+    .catch((error) => console.log(error));
+});
+
+// const promise = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     resolve(5);
+//   }, 2000);
+// });
+
+// promise
+//   .then((value) => {
+//     console.log(value); // 5
+//     return value * 2;
+//   })
+//   .then((value) => {
+//     console.log(value); // 10
+//     return value * 3;
+//   })
+//   .then((value) => {
+//     console.log(value); // 30
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   })
+//   .finally(() => {
+//     console.log("finally");
+//   });
+
+// const isSuccess = true;
+
+// const promise = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     if (isSuccess) {
+//       resolve("Success! Value passed to resolve function");
+//     } else {
+//       reject("Error! Error passed to reject function");
+//     }
+//   }, 2000);
+// });
+
+// console.log(promise); // Об'єкт промісу
+
 // ------------------------------------------------
 // const box = document.querySelector(".js-box");
 
